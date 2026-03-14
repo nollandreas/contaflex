@@ -1,8 +1,38 @@
 <html>
   <body>
     Hello World GithubPage
+    <p>
+    <label for="tableFilter">Filter:</label>
+    <input id="tableFilter" type="text" placeholder="Filter eingeben">
+    <table>
+      <thead>
+        <tr><th>Spalte 1</th><th>Spalte 2</th><th>Spalte 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Andreas</td><td>Andreas</td><td>Andreas</td></tr>
+        <tr><td>Andreas</td><td>Ikonta</td><td>Andreas</td></tr>
+        <tr><td>Andreas</td><td>Andreas</td><td>Andreas</td></tr>
+        <tr><td>Andreas</td><td>Andreas</td><td>Zeiss</td></tr>
+        <tr><td>Zeiss</td><td>Andreas</td><td>Andreas</td></tr>
+      </tbody>
+    </table>
     <h1>Hallo</h1>
 
     This is an example commit...
+    <script>
+      (function(){
+        const input = document.getElementById('tableFilter');
+        const table = document.querySelector('table');
+        if(!input || !table) return;
+        const tbody = table.tBodies[0];
+        input.addEventListener('input', function(){
+          const q = this.value.trim().toLowerCase();
+          Array.from(tbody.rows).forEach(row => {
+            const rowText = Array.from(row.cells).map(c => c.textContent.toLowerCase()).join(' ');
+            row.style.display = q === '' || rowText.includes(q) ? '' : 'none';
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
