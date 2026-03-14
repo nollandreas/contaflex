@@ -10,11 +10,11 @@
         <tr><th>Spalte 1</th><th>Spalte 2</th><th>Spalte 3</th></tr>
       </thead>
       <tbody>
-        <tr><td>Andreas</td><td>Andreas</td><td>Andreas</td></tr>
+        <tr><td>Andreas AAAA</td><td>Andreas</td><td>Andreas</td></tr>
         <tr><td>Zeiss Ikon</td><td>Ikonta</td><td>Andreas</td></tr>
         <tr><td>Minolta</td><td>Andreas</td><td>Agfa</td></tr>
         <tr><td>Andreas</td><td>Andreas</td><td>Zeiss</td></tr>
-        <tr><td>Zeiss</td><td>Andreas</td><td>Systemkamera</td></tr>
+        <tr><td>Zeiss</td><td>Andreas</td><td>Systemkamera AAAA</td></tr>
       </tbody>
     </table>
     <h1>Hallo</h1>
@@ -40,6 +40,31 @@
             input.dispatchEvent(new Event('input'));
             input.focus();
           });
+        }
+      })();
+
+      // dynamisch aus data.json laden und Tabelle (tbody) füllen
+      (async function(){
+        const table = document.querySelector('table');
+        const tbody = table.tBodies[0];
+        try {
+          const res = await fetch('./data.json');
+          if(!res.ok) throw new Error('fetch failed');
+          const rows = await res.json(); // erwartet Array von Arrays oder Array von Objekten
+          tbody.innerHTML = '';
+          // Beispiel: rows = [{col1:'a',col2:'b',col3:'c'}, ...]
+          rows.forEach(r => {
+            const tr = document.createElement('tr');
+            const vals = Array.isArray(r) ? r : [r.col1, r.col2, r.col3];
+            vals.forEach(v => {
+              const td = document.createElement('td');
+              td.textContent = v ?? '';
+              tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+          });
+        } catch(e) {
+          console.error(e);
         }
       })();
     </script>
