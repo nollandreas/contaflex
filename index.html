@@ -4,6 +4,7 @@
     <p>
     <label for="tableFilter">Filter:</label>
     <input id="tableFilter" type="text" placeholder="Filter eingeben">
+    <button id="tableFilterClear" type="button" style="margin-left:8px">Clear</button>
     <table>
       <thead>
         <tr><th>Spalte 1</th><th>Spalte 2</th><th>Spalte 3</th></tr>
@@ -32,6 +33,14 @@
             row.style.display = q === '' || rowText.includes(q) ? '' : 'none';
           });
         });
+        const clearBtn = document.getElementById('tableFilterClear');
+        if(clearBtn){
+          clearBtn.addEventListener('click', function(){
+            input.value = '';
+            input.dispatchEvent(new Event('input'));
+            input.focus();
+          });
+        }
       })();
     </script>
   </body>
