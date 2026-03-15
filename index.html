@@ -21,10 +21,10 @@
 
     Beispielbild:
     <p>
-    <img src="https://drive.google.com/uc?export=view&id=1HnUlyuCJM1k8rN8zpja6Tzh8VixOsIsP" width="200" alt="Beispielbild 1">
+    <a href="https://drive.google.com/uc?export=view&id=1HnUlyuCJM1k8rN8zpja6Tzh8VixOsIsP" target="_blank">Bild 1</a>
     </p>
     <p>
-    <img src="./images/xxx_CarlZeissJena_Pancolar1.8-50mm_Zebra_web.JPG" width="640" alt="Beispielbild 2">
+    <img src="./images/xxx_CarlZeissJena_Pancolar1.8-50mm_Zebra_web.JPG" width="100" alt="Beispielbild 2">
     </p>
 
     Schön, oder?
@@ -56,16 +56,16 @@
         const table = document.querySelector('table');
         const tbody = table.tBodies[0];
         try {
-          const res = await fetch('./data.csv');
+          const res = await fetch('./data2.csv');
           if(!res.ok) throw new Error('fetch failed');
           const text = await res.text();
           const lines = text.trim().split('\n');
           // optional: erste Zeile als Header überspringen
-          const dataLines = lines[0].includes(',') ? lines.slice(1) : lines;
+          const dataLines = lines[0].includes(';') ? lines.slice(1) : lines;
 
           tbody.innerHTML = '';
           dataLines.forEach(line => {
-            const cols = line.split(',');
+            const cols = line.split(';');
             const tr = document.createElement('tr');
             cols.slice(0, 3).forEach(v => {
               const td = document.createElement('td');
