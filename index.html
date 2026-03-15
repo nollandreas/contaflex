@@ -17,7 +17,7 @@
 
     Beispielbild:
     <p>
-    <a href="https://drive.google.com/uc?export=view&id=1HnUlyuCJM1k8rN8zpja6Tzh8VixOsIsP" target="_blank">Bild 1</a>
+    <a href="https://drive.google.com/uc?export=view&id=1HnUlyuCJM1k8rN8zpja6Tzh8VixOsIsP" target="_blank" rel="noopener noreferrer">Bild 1</a>
     </p>
     <p>
     <img src="./images/xxx_CarlZeissJena_Pancolar1.8-50mm_Zebra_web.JPG" width="100" alt="Beispielbild 2">
@@ -52,7 +52,8 @@
         const table = document.querySelector('table');
         const tbody = table.tBodies[0];
         try {
-          const res = await fetch('./data2.csv');
+          //const res = await fetch('./data2.csv');
+          const res = await fetch('https://1drv.ms/x/c/3AE7055B57F58563/AaFuFcJP7QFJmDvUJBdRRzM?e=an5Y4H');
           if(!res.ok) throw new Error('fetch failed');
           const text = await res.text();
           const lines = text.trim().split('\n');
