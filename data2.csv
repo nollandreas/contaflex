@@ -1,6 +1,6 @@
-col1;col2;col3
-Andreas CCC;Andreas;Andreas
-Zeiss Ikon;Ikonta;Andreas
-Minolta;Andreas;Agfa
-Andreas;Andreas;Zeiss
-Zeiss;Andreas;Systemkamera CCC
+col1;col2;col3;col4
+Andreas CCC;Andreas;Andreas;10€
+Zeiss Ikon;Ikonta;Andreas;https://drive.google.com/uc?export=view&id=1HnUlyuCJM1k8rN8zpja6Tzh8VixOsIsP
+Minolta;Andreas;Agfa;0€
+Andreas;Andreas;Zeiss;100€
+Zeiss;Andreas;Systemkamera CCC;33€

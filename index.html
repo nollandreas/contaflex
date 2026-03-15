@@ -7,14 +7,10 @@
     <button id="tableFilterClear" type="button" style="margin-left:8px">Clear</button>
     <table>
       <thead>
-        <tr><th>Spalte 1</th><th>Spalte 2</th><th>Spalte 3</th></tr>
+        <tr><th>Spalte 1</th><th>Spalte 2</th><th>Spalte 3</th><th>Spalte 4</th></tr>
       </thead>
       <tbody>
-        <tr><td>Andreas AAAA</td><td>Andreas</td><td>Andreas</td></tr>
-        <tr><td>Zeiss Ikon</td><td>Ikonta</td><td>Andreas</td></tr>
-        <tr><td>Minolta</td><td>Andreas</td><td>Agfa</td></tr>
-        <tr><td>Andreas</td><td>Andreas</td><td>Zeiss</td></tr>
-        <tr><td>Zeiss</td><td>Andreas</td><td>Systemkamera AAAA</td></tr>
+        <tr><td>Andreas AAAA</td><td>Andreas</td><td>Andreas</td><td>9,99€</tr></tr>
       </tbody>
     </table>
     <h1>Hallo</h1>
@@ -67,7 +63,7 @@
           dataLines.forEach(line => {
             const cols = line.split(';');
             const tr = document.createElement('tr');
-            cols.slice(0, 3).forEach(v => {
+            cols.slice(0, 4).forEach(v => {
               const td = document.createElement('td');
               td.textContent = v ?? '';
               tr.appendChild(td);
